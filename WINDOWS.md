@@ -82,7 +82,6 @@ Check the **Version number**:
 
 ✔️ If it says at least `1903`, you are good to go 👍
 
-
 ## Virtualization
 
 We need to ensure that the Virtualization options are enabled in the BIOS of your computer.
