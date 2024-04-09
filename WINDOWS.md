@@ -82,7 +82,6 @@ Check the **Version number**:
 
 ✔️ If it says at least `1903`, you are good to go 👍
 
-❌ If it is below `1903`, please **contact a teacher**.
 
 ## Virtualization
 
@@ -99,8 +98,6 @@ For many computers, this is already the case. Let's check:
 ![Windows task manager](images/windows_task_manager.png)
 
 ✔️ If you see "Virtualization: Enabled", you're good to go 👍
-
-❌ If the line is missing or if the virtualization is disabled, please **contact a teacher before trying to activate the Virtualization**
 
 <details>
   <summary>Activate Virtualization</summary>
@@ -153,7 +150,7 @@ wsl --install
 
 ✔️ If the command ran without any error, please restart your computer and continue below 👍
 
-❌ If you encounter an error message (or if you see some text in red in the window), please **contact a teacher**
+❌ If you encounter an error message (or if you see some text in red in the window), please **try to solve it before continuing**
 
 ### Windows 10
 
@@ -189,7 +186,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ✔️ If all three commands ran without any error, please restart your computer and continue below 👍
 
-❌ If you encounter an error message (or if you see some text in red in the window), please **contact a teacher**
+❌ If you encounter an error message (or if you see some text in red in the window), please **try to solve it before continuing**
 
 #### Upgrade to WSL 2
 
@@ -227,7 +224,7 @@ wsl --set-default-version 2
 
 ✔️ If you see "The operation completed successfully", you can close this terminal and continue to follow the instructions below 👍
 
-❌ If the message you get is about Virtualization, please **contact a teacher**
+❌ If the message you get is about Virtualization, please **try to solve it before continuing**
 
 <details>
   <summary>Enable Virtual Machine Platform Windows feature</summary>
@@ -289,7 +286,7 @@ At first launch, you will be asked some information:
   - one word
   - lowercase
   - no special characters
-  - for example: `lewagon` or your `firstname`
+  - for example: your `firstname`
 - Choose a **password**
 - Confirm your password
 
@@ -341,7 +338,7 @@ wsl -l -v
 
   Apply changes to this folder only and try to convert the Ubuntu WSL version again.
 
-  ❌ If the conversion still does not work, please **contact a teacher**.
+  ❌ If the conversion still does not work, please **try to solve it before continuing**.
 </details>
 
 ### Check the locale
@@ -421,9 +418,9 @@ code .
 
 ✔️ If you see `WSL: Ubuntu` in the bottom left corner of the VS Code window, you're good to go 👍
 
-![WSL Ubuntu Remote](https://github.com/lewagon/setup/blob/master/images/windows_remote_wsl.png)
+![WSL Ubuntu Remote](images/windows_remote_wsl.png)
 
-❌ Otherwise, please **contact a teacher**
+❌ Otherwise, please **try to solve it before continuing**
 
 
 ## Windows Terminal
@@ -796,13 +793,11 @@ gh auth status
 
 ✔️ If you get `Logged in to github.com as <YOUR USERNAME> `, then all good 👍
 
-❌ If not, **contact a teacher**.
+❌ If not, **try to solve it before continuing**.
 
 ## Dotfiles
 
-We'll start with a great default configuration provided by [Le Wagon](http://github.com/lewagon/dotfiles), stored on GitHub. As your configuration is personal, you need your own repository storing it, so you first need to fork it to your GitHub account.
-
-:arrow_right: [Click here to **fork**](https://github.com/lewagon/dotfiles/fork) the `lewagon/dotfiles` repository to your account (you'll need to click again on your picture to confirm _where_ you do the fork).
+We'll start with a great default configuration stored on GitHub. As your configuration is personal, you need your own repository storing it, so you first need to fork it to your GitHub account.
 
 Forking means that it will create a new repo in your GitHub account, identical to the original one. You'll have a new repository on your GitHub account, `your_github_username/dotfiles`. We need to fork because each of you will need to put specific information (e.g. your name) in those
 files.
@@ -821,7 +816,7 @@ Time to fork the repo and clone it on your laptop:
 
 ```bash
 mkdir -p ~/code/$GITHUB_USERNAME && cd $_
-gh repo fork lewagon/dotfiles --clone
+gh repo fork ------/dotfiles --clone
 ```
 
 Run the `dotfiles` installer.
@@ -943,7 +938,6 @@ exec zsh
 
 To check if this worked, run `python --version`. If you see `3.10.6`, perfect! If not, ask a TA that will help you debug the problem thanks to `pyenv versions` and `type -a python` (`python` should be using the `.pyenv/shims` version first).
 
-
 ## Python Virtual Environment
 
 Before we start installing relevant Python packages, we will isolate the setup for the Bootcamp into a **dedicated** virtual environment. We will use a `pyenv` plugin called [`pyenv-virtualenv`](https://github.com/pyenv/pyenv-virtualenv).
@@ -955,37 +949,17 @@ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/py
 exec zsh
 ```
 
-Let's create the virtual environment we are going to use during the whole bootcamp:
-
-```bash
-pyenv virtualenv 3.10.6 lewagon
-```
-
-Let's now set the virtual environment with:
-
-```bash
-pyenv global lewagon
-```
-
 Great! Anytime we'll install Python package, we'll do it in that environment.
-
 
 ## Python packages
 
-Now that we have a pristine `lewagon` virtual environment, it's time to install some packages in it.
-
-First, let's upgrade `pip`, the tool to install Python Packages from [pypi.org](https://pypi.org). In the latest terminal where the virtualenv `lewagon` is activated, run:
+First, let's upgrade `pip`, the tool to install Python Packages from [pypi.org](https://pypi.org).
 
 ```bash
 pip install --upgrade pip
 ```
 
 Then let's install some packages for the first weeks of the program:
-
-``` bash
-pip install -r https://raw.githubusercontent.com/lewagon/data-setup/master/specs/releases/linux.txt
-```
-
 
 
 ## Configuring Jupyter Notebook to open in your browser
@@ -1107,23 +1081,7 @@ Untick _"disable configuration for nbextensions without explicit compatibility"_
 
 You can close your web browser then terminate the jupyter server with `CTRL` + `C`.
 
-
 ### Python setup check up
-
-Check your Python version with the following commands:
-```bash
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/lewagon/data-setup/master/checks/python_checker.sh)" 3.10.6
-```
-
-Run the following command to check if you successfully installed the required packages:
-```bash
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/lewagon/data-setup/master/checks/pip_check.sh)"
-```
-
-Now run the following command to check if you can load these packages:
-```bash
-python -c "$(curl -fsSL https://raw.githubusercontent.com/lewagon/data-setup/master/checks/pip_check.py)"
-```
 
 Make sure you can run Jupyter:
 
@@ -1134,12 +1092,10 @@ jupyter notebook
 And open a `Python 3` notebook.
 
 Make sure that you are running the correct python version in the notebook. Open a cell and run :
+
 ``` python
 import sys; sys.version
 ```
-
-Here you have it! A complete python virtual env with all the third-party packages you'll need for the whole bootcamp.
-
 
 
 ## DBeaver
@@ -1154,23 +1110,25 @@ Download and install [DBeaver](https://dbeaver.io/), a free and open source powe
 We need an easy way to transfer files from Windows to Ubuntu and vice versa.
 
 In order to do that, let's create shortcuts to Ubuntu directories in the Windows **File Explorer**:
+
 - Open the Windows File Explorer (or use the shortcut `WIN` + `E`)
 - In the Address Bar, enter `\\wsl$\` (or `\\wsl$\Ubuntu` if it does not work)
 - You now have acces to the Ubuntu file system
 - Dive into the Ubuntu file system in order to look for directories of interest
 - Drag the desired folders into the Address Bar in order to create shortcuts
 
-![How to add a shortcut to Ubuntu file system on Windows](https://github.com/lewagon/setup/blob/master/images/windows_ubuntu_file_system_shortcut.gif)
+![How to add a shortcut to Ubuntu file system on Windows](images/windows_ubuntu_file_system_shortcut.gif)
 
 ### Open the Windows File Explorer from the Ubuntu terminal
 
 Another option to move files around is to open the Windows **File Explorer** from the Ubuntu terminal:
+
 - Open an Ubuntu terminal
 - Go to the directory you wish to explore
 - Run the `explorer.exe .` command (alternatively, use `wslview .`)
 - If you get an input output error message, run `wsl --shutdown` in a Windows PowerShell and reopen an Ubuntu terminal
 
-![How to launch Windows Explorer from Ubuntu terminal](https://github.com/lewagon/setup/blob/master/images/windows_explorer_from_terminal.png)
+![How to launch Windows Explorer from Ubuntu terminal](images/windows_explorer_from_terminal.png)
 
 ### Find your way in the Ubuntu File System
 
@@ -1182,7 +1140,7 @@ In order to convert a Windows path to and from an Ubuntu path:
 - Use the `wslpath -w "/home"` command in order to translate an Ubuntu path into a Windows path
 - In particular, the `wslpath -w $(pwd)` command returns the Windows path of the current Ubuntu directory
 
-![How to access a Windows path from Ubuntu terminal](https://github.com/lewagon/setup/blob/master/images/windows_path_from_terminal.png)
+![How to access a Windows path from Ubuntu terminal](images/windows_path_from_terminal.png)
 
 ### Pin apps to your taskbar
 
@@ -1190,9 +1148,10 @@ You are going to use most of the apps you've installed today really often. Let's
 
 To pin an app to your taskbar, launch the app, right-click on the icon in the taskbar to bring up the context menu and choose "Pin to taskbar".
 
-![How to pin an app to the taskbar in Windows](https://github.com/lewagon/setup/blob/master/images/windows_taskbar.png)
+![How to pin an app to the taskbar in Windows](images/windows_taskbar.png)
 
 You must pin:
+
 - Your terminal
 - Your file explorer
 - VS Code
@@ -1236,390 +1195,3 @@ docker run hello-world
 The following message should print:
 
 ![](images/docker_hello.png)
-
-
-## Google Cloud Platform setup
-
-[GCP](https://cloud.google.com/) is a cloud solution that you are going to use in order to deploy your Machine Learning-based products to production.
-
-🚨 If you are a student of the **Part-Time Bootcamp**, SKIP THIS SECTION FOR NOW! **GCP** offers $300 worth of free credits for a duration of 3 months. You do not want to activate your GCP account too soon 🙅‍♂️
-
-### Project setup
-
-- Go to [Google Cloud](https://console.cloud.google.com/) and create an account if you do not already have one
-- In the Cloud Console, on the project list, select or create a Cloud project
-
-![](images/gcp-create-project.png)
-
-- Give it a name such as `Wagon Bootcamp` for example
-- Notice the `ID` automatically created for the project, e.g. `wagon-bootcamp-123456`
-
-![](images/gcp_project.png)
-
-### Account language
-
-In order to facilitate the following of the instructions during the bootcamp, open your GCP account preferences:
-
-https://myaccount.google.com/language
-
-If the *preferred language* is not:
-- **English**
-- **United States**
-
-Then switch the language to english:
-- Click on the edit pen logo
-- Select **English**
-- Select **United States**
-- Click on **Select**
-
-### Billing account
-
-You will now link your account to your credit card. This step is required or you will not be able to use the services provided by GCP. Do not worry, you will be able to consume most GCP services through free credits throughout the bootcamp.
-
-![](images/gcp-billing.png)
-
-- Click on **Billing**
-- Click on **MANAGE BILLING ACCOUNTS**
-- Click on **ADD BILLING ACCOUNT**
-- Give a name to your billing account, e.g. `My Billing Account`
-- Click on "I have read..." and agree the to the terms of service
-- Click on **CONTINUE**
-- Select your account type: `Individual`
-- Fill your name and address
-
-You should see that you have a free credit of "$300 credits over the next 90days".
-
-- Click on card details
-- Enter your credit card info
-- Click on **START MY FREE TRIAL**
-
-Once this is done, verify that your billing account is linked to your GCP project.
-
-- Select your project
-- Go to **Billing**
-- Select **LINK A BILLING ACCOUNT**
-- Select `My Billing Account`
-- Click on **SET ACCOUNT**
-
-You should now see:
-
-```
-Free trial status: $300 credit and 91 days remaining - with a full account, you'll get unlimited access to all of Google Cloud Platform.
-```
-
-<details>
-  <summary>👉 If you do not own a credit card 👈</summary>
-
-
-If you do not own a credit card, an alternative is to setup a **Revolut** account.
-Revolut is a financial app that will allow you to create a virtual credit card linked to your mobile phone billing account.
-
-Skip this step if you own a credit card and use your credit card for the setup.
-
-Download the Revolut app, or go to [revolut](https://www.revolut.com/a-radically-better-account) and follow the steps to download the app (enter your mobile phone number and click on Get Started).
-
-- Open the Revolut app
-- Enter your mobile phone number
-- Enter the verification code received by SMS
-- The app will ask for your country, address, first and last name, date of birth, email address
-- The app will also ask for a selfie and request your profession
-- The app will require a photo of your identification card or passport
-
-Once this is done, select the standard (free) plan. No need to add the card to Apple pay, or ask for a the delivery of a physical card, or add money securely.
-
-You now have a virtual card which we will use for the GCP setup.
-
-In the main view of the Revolut the app
-- Click on Ready to use
-- Click on the card
-- Click on Show card details
-- Note down the references of the virtual credit card and use them in order to proceed with the GCP setup
-
-</details>
-
-<details>
-  <summary>👉 If you receive an email from Google saying "Urgent: your billing account XXXXXX-XXXXXX-XXXXXX has been suspended" 👈</summary>
-
-
-This may happen especially in case you just setup a Revolut account.
-
-- Click on PROCEED TO VERIFICATION
-- You will be asked to send a picture of your credit card (only the last 4 digits, no other info)
-- In case you used **Revolut**, you can send a screenshot of your virtual credit card (do not forget to remove the validity date from the screenshot)
-- Explain that you are attending the Le Wagon bootcamp, do not own a credit card, and have just created a Revolut account in order to setup GCP for the bootcamp using a virtual credit card
-
-You may receive a validation or requests for more information within 30 minutes.
-
-Once the verification goes through, you should receive an email stating that "Your Google Cloud Platform billing account XXXXXX-XXXXXX-XXXXXX has been fully reinstated and is ready to use.".
-
-</details>
-
-### Enabling GCP services
-
-- Make sure that billing is enabled for your Google Cloud project
-
-ℹ️ You have a **$300 credit** to use for Google Cloud resources, which will be more than enough for the bootcamp.
-
-- [Enable the AI Platform Training & Prediction and Compute Engine APIs](https://console.cloud.google.com/flows/enableapi?apiid=ml.googleapis.com,compute_component&_ga=2.269215094.662509797.1580849510-2071889129.1567861089&_gac=1.154971594.1580849512.CjwKCAiAyeTxBRBvEiwAuM8dnbZ6uMwizbZW44J2mBCX6ncEjwjwpgF8S8QsvhYAXLkJ8awDnIRTNRoCJ_0QAvD_BwE) (This step may take a few minutes)
-
-### Configure Cloud sdk
-
-- Authenticate the `gcloud` CLI with the google account you used for GCP
-
-```bash
-gcloud auth login --no-launch-browser
-```
-
-- Login to your Google account on the new tab opened in your web browser
-- List your active account and check your email address you used for GCP is present
-```bash
-gcloud auth list
-```
-- Set your current project (replace `PROJECT_ID` with the `ID` of your project, e.g. `wagon-bootcamp-123456`)
-```bash
-gcloud config set project PROJECT_ID
-```
-- List your active account and current project and check your project is present
-```bash
-gcloud config list
-```
-
-### Create a service account key 🔑
-
-Now that you have created a `GCP account` and a `project` (identified by its `PROJECT_ID`), we are going to configure the actions (API calls) that you want to allow your code to perform.
-
-<details>
-  <summary>🤔 Why do we need a service account key ?</summary>
-
-
-  You have created a `GCP account` linked to your credit card. Your account will be billed according to your usage of the ressources of the **Google Cloud Platform**. The billing will occur if you consume anything once the free trial is over, or if you exceed the amount of spending allowed during the free trial.
-
-  In your `GCP account`, you have created a single `GCP project`, identified by its `PROJECT_ID`. The `GCP projects` allow you to organize and monitor more precisely how you consume the **GCP** ressources. For the purpose of the bootcamp, we are only going to create a single project.
-
-  Now, we need a way to tell which ressources within a `GCP project` our code will be allowed to consume. Our code consumes GCP ressources through API calls.
-
-  Since API calls are not free, it is important to define with caution how our code will be allowed to use them. During the bootcamp this will not be an issue and we are going to allow our code to use all the API of **GCP** without any restrictions.
-
-  In the same way that there may be several projects associated with a GCP account, a project may be composed of several services (any bundle of code, whatever its form factor, that requires the usage of GCP API calls in order to fulfill its purpose).
-
-  GCP requires that the services of the projects using API calls are registered on the platform and their credentials configured through the access granted to a `service account`.
-
-  For the moment we will only need to use a single service and will create the corresponding `service account`.
-</details>
-
-Since the [service account](https://cloud.google.com/iam/docs/service-accounts) is what identifies your application (and therefore your GCP billing account and ultimately your credit card), you are going to want to be cautious with the next steps.
-
-⚠️ **Do not share you service account json file 🔑** ⚠️ Do not store it on your desktop, do not store it in your git codebase (even if your git repository is private), do not let it by the coffee machine, do not send it as a tweet.
-
-- Go to the [service accounts page](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
-- Select your project in the list of recent projects if asked to
-- Create a service account:
-  - Click on **CREATE SERVICE ACCOUNT**:
-  - Give a `Service account name` to that account
-  - Click on **CREATE AND CONTINUE**
-  - Click on **Select a role** and choose `Quick access/Basic` then **Owner**, which gives full access to all ressources
-  - Click on **CONTINUE**
-  - Click on **DONE**
-- Download the service account json file 🔑:
-  - Click on the newly created service account
-  - Click on **KEYS**
-  - Click on **ADD KEY** then **Create new key**
-  - Select **JSON** and click on **CREATE**
-
-![](images/gcp_create_key.png)
-
-The browser has now saved the service account json file 🔑 in your downloads directory (it is named according to your service account name, something like `le-wagon-data-123456789abc.json`)
-
-
-We will now move the service account json file from your Windows disk to the Ubuntu disk. This will allow the development tools in Ubuntu to access to the ressources of your GCP account.
-
-First, let's create a directory in which we will store the file.
-
-👉 Open an Ubuntu terminal and run the following commands
-
-🚨 replace `GITHUB_NICKNAME` by your **GitHub** nickname
-
-``` bash
-cd ~/code/GITHUB_NICKNAME
-ls -la
-```
-
-If the command does not show the `dotfiles` directory, ask for a TA 🙏
-
-Otherwise, you can proceed with the setup:
-
-``` bash
-mkdir gcp
-```
-
-![](images/wsl-gcp-dir.png)
-
-We will now move the service account json file to the `gcp` directory we just created.
-
-Open a Windows **File Explorer** (Win + E) and locate the `gcp` directory in the Ubuntu file system.
-
-You can either:
-- Use the **Quick access** link that we created earlier
-- manually type the location of the `gcp` directory in the Ubuntu file system in the address bar:
-
-```
-\\wsl$\Ubuntu\home\UBUNTU_USERNAME\code\GITHUB_NICKNAME
-```
-
-
-🚨 if you opt for the second option:
-- replace `UBUNTU_USERNAME` by the username that you choose during the **Ubuntu** setup
-- replace `GITHUB_NICKNAME` by your **GitHub** nickname
-
-![](images/wsl-gcp-key.png)
-
-Once you have located the `gcp` directory in the Windows **File Explorer**, move the service account json file that you downloaded inside of it.
-
-The file should now be visible from Ubuntu file system.
-
-👉 Open an Ubuntu terminal and verify that the service account json file has been moved
-
-``` bash
-cd gcp
-ls -la
-```
-
-![](images/wsl-gcp-dir-2.png)
-
-If you do not see the service account json file listed in the `gcp` directory, ask for a TA 🙏
-
-We will now store the path to your service account json file in an environment variable.
-
-🚨 in the following command, replace:
-- `UBUNTU_USERNAME` by the username that you choose during the **Ubuntu** setup
-- `GITHUB_NICKNAME` by your **GitHub** nickname
-- `SERVICE_ACCOUNT_JSON_FILE_CONTAINING_YOUR_SECRET_KEY.json` by the name of your service account json file
-
-``` bash
-echo 'export GOOGLE_APPLICATION_CREDENTIALS=/home/UBUNTU_USERNAME/code/GITHUB_NICKNAME/gcp/SERVICE_ACCOUNT_JSON_FILE_CONTAINING_YOUR_SECRET_KEY.json' >> ~/.zshrc
-```
-**Note:** every time you run this command, it will add this line to your zshrc file regardless of whether you already have it. If you made a mistake and need to fix it, preferably open the file and edit the line!
-
-You can do so by running
-
-```bash
-code ~/.zshrc
-```
-
-in the Terminal! 😄
-
-
-<details>
-  <summary>ℹ️ How to find the absolute path of a file?</summary>
-  You can drag and drop the file in your terminal.
-</details>
-
-**Restart** your terminal and run:
-
-``` bash
-echo $GOOGLE_APPLICATION_CREDENTIALS
-```
-
-The ouptut should be the following:
-
-```bash
-/some/absolute/path/to/your/gcp/SERVICE_ACCOUNT_JSON_FILE_CONTAINING_YOUR_SECRET_KEY.json
-```
-
-Now let's verify that the path to your service account json file is correct:
-
-``` bash
-cat $(echo $GOOGLE_APPLICATION_CREDENTIALS)
-```
-
-👉 This command should display the content of your service account json file. If it does not, ask for a TA 🙏
-
-Your code and utilities are now able to access the resources of your GCP account.
-
-Let's proceed with the final steps of configuration...
-
-- List the service accounts associated to your active account and current project
-```bash
-gcloud iam service-accounts list
-```
-- Retrieve the service account email address, e.g. `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`
-- List the roles of the service account from the cli (replace PROJECT_ID and SERVICE_ACCOUNT_EMAIL)
-```bash
-gcloud projects get-iam-policy PROJECT_ID \
---flatten="bindings[].members" \
---format='table(bindings.role)' \
---filter="bindings.members:SERVICE_ACCOUNT_EMAIL"
-```
-- You should see that your service account has a role of `roles/owner`
-
-<details>
-  <summary>Troubleshooting</summary>
-
-- `AccessDeniedException: 403 The project to be billed is associated with an absent billing account.`
-  - Make sure that billing is enabled for your Google Cloud Platform project https://cloud.google.com/billing/docs/how-to/modify-project
-</details>
-
-🏁 You are done with the GCP setup!
-
-
-## Kitt
-
-⚠️ If you have received an email from Le Wagon inviting you to sign up on Kitt (our learning platform), you can safely skip this step. Instead, please follow the instructions in the email you received if you haven't done so already.
-
-If you are unsure about what to do, you can follow [this link](https://kitt.lewagon.com/). If you are already logged in, you can safely skip this section. If you are not logged in, click on `Enter Kitt as a Student`. If you manage to login, you can safely skip this step. Otherwise ask a teacher whether you should have received an email or follow the instructions below.
-
-Register as a Wagon alumni by going to [kitt.lewagon.com/onboarding](http://kitt.lewagon.com/onboarding). Select your batch, sign in with GitHub and enter all your information.
-
-Your teacher will then validate that you are indeed part of the batch. You can ask them to do it as soon as you completed the registration form.
-
-Once the teacher has approved your profile, go to your email inbox. You should have 2 emails:
-
-- One from Slack, inviting you to the Le Wagon Alumni slack community (where you'll chat with your buddies and all the previous alumni). Click on **Join** and fill the information.
-- One from GitHub, inviting you to `lewagon` team. **Accept it** otherwise you won't be able to access the lecture slides.
-
-
-## Slack
-
-[Slack](https://slack.com/) is a communcation platform pretty popular in the tech industry.
-
-### Installation
-
-[Download the Slack app](https://slack.com/downloads/windows) and install it.
-
-⚠️ If you are already using Slack in your browser, please download and install **the desktop app** which is fully featured.
-
-
-### Settings
-
-Launch the app and sign in to `lewagon-alumni` organization.
-
-Make sure you **upload a profile picture** 👇
-
-![How to upload a profile picture on Slack](https://github.com/lewagon/setup/blob/master/images/slack_profile_picture.gif)
-
-The idea is that you'll have Slack open all day, so that you can share useful links / ask for help / decide where to go to lunch / etc.
-
-To ensure that everything is working fine for video calls, let's test your camera and microphone:
-- Open the Slack app
-- Click your profile picture in the top right.
-- Select `Preferences` from the menu.
-- Click `Audio & video` in the left-side column.
-- Below `Troubleshooting`, click `Run an audio, video and screensharing test`. The test will open in a new window.
-- Check that your preferred speaker, microphone and camera devices appear in the drop-down menus, then click `Start test`.
-
-![Check microphone and webcam with Slack](https://github.com/lewagon/setup/blob/master/images/slack_call_test.png)
-
-✔️ When the test is finished, you should see green "Succeed" messages at least for your microphone and camera. 👍
-
-❌ If not, **contact a teacher**.
-
-You can also install Slack app on your phone and sign in `lewagon-alumni`!
-
-
-## (Bonus) Kata
-
-If you are done with your setup, please ask around if some classmates need some help with theirs (macOS, Linux, Windows). We will have our first lectures at 2pm and will talk about the Setup you just did + onboard you on Kitt.
-
-If you don't have a lot of experience with `git` and GitHub, please [(re-)watch this workshop](https://www.youtube.com/watch?v=Z9fIBT2NBGY) (`1.25` playback speed is fine).
-
-If you do, then you can wait for the first lecture working on this [Tic-Tac-Toe Kata](https://www.codewars.com/kata/5b817c2a0ce070ace8002be0/train/python)
