@@ -860,11 +860,11 @@ code ~/.zshrc
 ```
 
 Then:
+
 - Spot the line starting with `plugins=`
 - Add `ssh-agent` at the end of the plugins list
 
 ✔️ Save the `.zshrc` file with `Ctrl` + `S` and close your text editor.
-
 
 ## Installing Python (with [`pyenv`](https://github.com/pyenv/pyenv))
 
@@ -877,6 +877,7 @@ Check if you have `conda` installed on your machine:
 ```bash
 conda list
 ```
+
 If you have `zsh: command not found: conda`, you can **skip** the uninstall of `conda` and jump to the **Install `pyenv`** section.
 
 <details>
